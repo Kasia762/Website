@@ -73,4 +73,18 @@ p{
 .logo{
     color:rgb(199, 40, 40); 
     font-size: 25px;
+    margin:70px 0;
+}
+.categories{
+    margin:70px 0;
+
+}
+.products-image{
+    flex-basis: 10%;
+}
+.products-image img{
+    width: 350px;
+}
+.row{
+    display: flex;
 }
