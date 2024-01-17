@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Example</title>
+    <style>
+        /* Add some basic styles for better appearance */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        /* Apply hover style for specific items */
+        nav li:nth-child(2) a:hover {
+            background-color: #66BB6A; /* Change this color as needed */
+        }
+
+        nav li:nth-child(3) a:hover {
+            background-color: #42A5F5; /* Change this color as needed */
+        }
+
+        /* Hide all sections initially */
+        .page-section {
+            display: none;
+        }
+
+        /* Display the selected section */
+        .active-section {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Website</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="showSection('home-section')">Home</a></li>
+            <li><a href="#about" onclick="showSection('about-section')">About</a></li>
+            <li><a href="#services" onclick="showSection('services-section')">Services</a></li>
+            <li><a href="#contact" onclick="showSection('contact-section')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page sections -->
+    <div id="home-section" class="page-section active-section">
+        <h2>Welcome to the Home Page</h2>
+        <p>This is the content for the Home Page.</p>
+    </div>
+
+    <div id="about-section" class="page-section">
+        <h2>About Us</h2>
+        <p>This is the content for the About Us page.</p>
+    </div>
+
+    <div id="services-section" class="page-section">
+        <h2>Our Services</h2>
+        <p>Explore our range of services.</p>
+    </div>
+
+    <div id="contact-section" class="page-section">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us.</p>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.getElementsByClassName('page-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active-section');
+            }
+
+            // Display the selected section
+            var selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active-section');
+        }
+    </script>
+
+</body>
+</html>

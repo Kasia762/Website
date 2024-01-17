@@ -4,14 +4,73 @@
     box-sizing: border-box;
 }
 body{
-    background-color: azure;
+    background-color: whitesmoke;
+    font-family: 'Segoe UI';
+    
 }
 .NavigationBar{
     display: flex;
-    align-items: center;
-    padding: 30px;
+    align-items: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 nav{
-    flex: 5;
-    text-align: middle;
+    /*navigation tabs edition*/
+    flex: 10;
+    text-align: right;
+    color:rgb(170, 124, 54);
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(201, 201, 201);
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 20px;
+}
+a{
+    display:block;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration:none;
+    color:black;
+
+}
+a:hover{
+    background-color: rgb(44, 44, 44);
+    color:whitesmoke;
+}
+
+p{
+    color:rgb(46, 46, 46);
+    padding-top: 5px;
+    padding-bottom: 15px;
+    float:left;
+}
+.container{
+    max-width: auto;
+    min-width: 500px;
+    margin: auto;
+    padding-top: 25px;
+    padding-bottom: 5px;
+    padding-right:10px;
+    padding-left: 10px;
+    color:rgb(70, 39, 39);
+}
+/* Hide all sections initially */
+.page-content {
+    display: none;
+}
+
+/* Display the selected section */
+.active-section {
+    display: block;
+}
+.logo{
+    color:rgb(199, 40, 40); 
+    font-size: 25px;
 }

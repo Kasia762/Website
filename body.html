@@ -3,21 +3,53 @@
     <head>
         <meta charset="UTF-8">
         <title> ScaleUpStore Ecomerce Webiste Case Study</title>
+        <link rel="stylesheet" href="style.css">
         
+        <script type="text/javascript" src="navigation.js"></script>
     </head>
-    <body>
-        <div class="NavigationBar">
-            <nav>
-                <ul>
-                    <li><a href=""></a>Home</a></li>
-                    <li><a href=""></a>Products</a></li>
-                    <li><a href=""></a>Cart</a></li>
-                </ul>
-            </nav>
+<body onload="showDefaultSection()">
+
+    <div class="container">
+        <div class="logo">
+            <h1>FASION SHOP</h1>
+            
         </div>
 
-    </body>
+        <div class="NavigationBar">
+        <nav>
+            <ul>
+                <li><a href="#home" 
+                    onclick="ShowSelected(event,'home-section')">Home</a></li>
+                <li><a href="#products" 
+                    onclick="ShowSelected(event,'products-section')">Products</a></li>
+                <li><a href="#about"
+                    onclick="ShowSelected(event,'about-section')">About Us</a></li>
+                <li><a href="#cart" 
+                    onclick="ShowSelected(event,'cart-section')">Cart</a></li>
+            </ul>   
+        
+        </div>
 
+        <!-- Page sections -->
+        <div id="home-section" class="page-content">
+            <h2>Welcome to Fashion online store</h2>
+            <p>You can choose from many clothes options</p>
+        </div>
 
+        <div id="products-section" class="page-content">
+            <h2>Products</h2>
+            <p>Start shopping!!</p>
+        </div>
 
+        <div id="about-section" class="page-content">
+            <h2>Elegance shop</h2>
+            <p>We are global company founded in Germany in 1990</p>
+        </div>
+
+        <div id="cart-section" class="page-content">
+            <h2>Cart!!</h2>
+            <p>Your items</p>
+        </div>
+    </div>
+</body>
 </hmtl>
