@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: azure;
+}
+.NavigationBar{
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+nav{
+    flex: 5;
+    text-align: middle;
+}
