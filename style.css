@@ -11,11 +11,10 @@ body{
 .NavigationBar{
     display: flex;
     align-items: right;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 nav{
-    /*navigation tabs edition*/
     flex: 10;
     text-align: right;
 }
@@ -24,7 +23,7 @@ nav ul{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(236, 230, 230);
 }
 nav ul li{
     display: inline-block;
@@ -42,7 +41,6 @@ a:hover{
     background-color: rgb(44, 44, 44);
     color:whitesmoke;
 }
-
 p{
     color:rgb(46, 46, 46);
     padding-top: 5px;
@@ -51,8 +49,7 @@ p{
 .container{
     max-width: auto;
     min-width: 400px;
-    margin: auto;
-    padding-top: 25px;
+    padding-top: 15px;
     padding-bottom: 5px;
     padding-right:5px;
     padding-left: 5px;
@@ -62,29 +59,31 @@ p{
     display: none;
     text-align: center;
 }
+.homepage-content{
+    text-align: left;
+    padding:50px;
+}
 .active-section {
     display: block;
 }
-.logo{
-    color:rgb(199, 40, 40); 
-    font-size: 25px;
-    margin:30px 0;
+.logo img{
+    height: 150px;
 }
 .categories{
     margin:40px 0;
 }
-.products-image{
+.category-product-image{
     flex-basis: 20%;
     overflow: hidden;
 }
-.products-image img{
+.category-product-image img{
     margin-top: 30px;
     align-self: center;
     height: 350px;
     filter: grayscale(100%);
     transition: transform 0.5s ease;
 }
-.products-image img:hover{
+.category-product-image img:hover{
     margin-top: 0px;
     filter: none;
     opacity: 0.6;
@@ -97,7 +96,6 @@ p{
 .product-image-container {
     position: relative;
     width: 100%;
-    /*overflow: hidden;*/
 }
 .overlay-text {
     position: absolute;
@@ -112,7 +110,7 @@ p{
     opacity: 0;
     transition: opacity 1s ease;
 }
-.products-image:hover .overlay-text{
+.category-product-image:hover .overlay-text{
     font-size: 75px;
     display:block;
     opacity:1;
@@ -122,14 +120,14 @@ p{
     .categories{
         margin:30px 0;
     }
-    .products-image{
+    .category-product-image{
         flex-basis: 30%;
         overflow: hidden;
     }
-    .products-image img {
+    .category-product-image img {
         height: 100px;
     }
-    .products-image:hover .overlay-text{
+    .category-product-image:hover .overlay-text{
         font-size: 25px;
         display:block;
         opacity:1;
