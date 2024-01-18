@@ -18,7 +18,6 @@ nav{
     /*navigation tabs edition*/
     flex: 10;
     text-align: right;
-    color:rgb(170, 124, 54);
 }
 nav ul{
     list-style-type: none;
@@ -38,7 +37,6 @@ a{
     padding: 15px 15px;
     text-decoration:none;
     color:black;
-
 }
 a:hover{
     background-color: rgb(44, 44, 44);
@@ -49,42 +47,103 @@ p{
     color:rgb(46, 46, 46);
     padding-top: 5px;
     padding-bottom: 15px;
-    float:left;
 }
 .container{
     max-width: auto;
-    min-width: 500px;
+    min-width: 400px;
     margin: auto;
     padding-top: 25px;
     padding-bottom: 5px;
-    padding-right:10px;
-    padding-left: 10px;
+    padding-right:5px;
+    padding-left: 5px;
     color:rgb(70, 39, 39);
 }
-/* Hide all sections initially */
 .page-content {
     display: none;
+    text-align: center;
 }
-
-/* Display the selected section */
 .active-section {
     display: block;
 }
 .logo{
     color:rgb(199, 40, 40); 
     font-size: 25px;
-    margin:70px 0;
+    margin:30px 0;
 }
 .categories{
-    margin:70px 0;
-
+    margin:40px 0;
 }
 .products-image{
-    flex-basis: 10%;
+    flex-basis: 20%;
+    overflow: hidden;
 }
 .products-image img{
-    width: 350px;
+    margin-top: 30px;
+    align-self: center;
+    height: 350px;
+    filter: grayscale(100%);
+    transition: transform 0.5s ease;
+}
+.products-image img:hover{
+    margin-top: 0px;
+    filter: none;
+    opacity: 0.6;
+    transform:scale(1.2);
 }
 .row{
     display: flex;
+    justify-content: center;
+}
+.product-image-container {
+    position: relative;
+    width: 100%;
+    /*overflow: hidden;*/
+}
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(56, 4, 4);
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+.products-image:hover .overlay-text{
+    font-size: 75px;
+    display:block;
+    opacity:1;
+}
+/*-----smaller window size----*/
+@media only screen and (max-width: 600px) {
+    .categories{
+        margin:30px 0;
+    }
+    .products-image{
+        flex-basis: 30%;
+        overflow: hidden;
+    }
+    .products-image img {
+        height: 100px;
+    }
+    .products-image:hover .overlay-text{
+        font-size: 25px;
+        display:block;
+        opacity:1;
+    }
+    .NavigationBar{
+        display: flex;
+        align-items: right;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    nav ul li{
+        align-items:right;
+        display:contents;
+        margin-right: 5px;
+        font-size: 15px;
+    }
 }
