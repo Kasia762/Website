@@ -1,6 +1,3 @@
-
-
-
 function ShowSelected(event, NavigationSelectionID) {
   // Hide the sections
   var sections = document.getElementsByClassName('page-content');
