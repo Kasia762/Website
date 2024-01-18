@@ -1,0 +1,21 @@
+name,category,price,color,img,status
+Elegant Evening Gown,Dress,89.99,Blue,elegant_evening_gown.jpg,online
+Floral Summer Dress,Dress,124.95,Red,floral_summer_dress.jpg,offline
+Velvet Midi Dress,Dress,79.5,Green,velvet_midi_dress.jpg,online
+Bohemian Maxi Dress,Dress,149.99,Yellow,bohemian_maxi_dress.jpg,offline
+Chic Little Black Dress,Dress,99.75,Purple,chic_little_black_dress.jpg,online
+Leather Jacket,Jacket,122.204,Black,jacket_leather.jpg,offline
+Denim Jacket,Jacket,126.66,Blue,jacket_denim.jpg,online
+Bomber Jacket,Jacket,131.116,Olive Green,jacket_bomber.jpg,offline
+Parka,Jacket,135.572,Khaki,jacket_parka.jpg,online
+Puffer Jacket,Jacket,140.028,Burgundy,jacket_puffer.jpg,offline
+Sneakers,Shoes,144.484,White,shoes_sneakers.jpg,online
+Ankle Boots,Shoes,148.94,Brown,shoes_ankle_boots.jpg,offline
+Loafers,Shoes,153.396,Black,shoes_loafers.jpg,online
+High Heels,Shoes,157.852,Red,shoes_high_heels.jpg,offline
+Sandals,Bag,162.308,Beige,shoes_sandals.jpg,online
+Tote Bag,Bag,166.764,Blue,bag_tote.jpg,offline
+Backpack,Bag,171.22,Red,bag_backpack.jpg,online
+Clutch,Bag,175.676,Green,bag_clutch.jpg,offline
+Crossbody Bag,Bag,180.132,Yellow,bag_crossbody.jpg,online
+Messenger Bag,Bag,184.588,Purple,bag_messenger.jpg,offline

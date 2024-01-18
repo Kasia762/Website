@@ -3,11 +3,11 @@ import pandas as pd
 import keyboard as key
 from tabulate import tabulate
 
-# Database and table information
+#--------------Database and table names--------------#
 db_name = "products.db"
 table_name = "products"
 
-# Function to create the table if it doesn't exist
+#--------------Create table-------------#
 def create_table(cursor):
     cursor.execute(f'''
         CREATE TABLE IF NOT EXISTS {table_name} (
@@ -19,18 +19,9 @@ def create_table(cursor):
             img TEXT,
             status TEXT
         )''')
+    conn.commit()
 
-# Function to insert sample data into the table
-def insert_sample_data(cursor):
-    cursor.execute(f'''
-        INSERT INTO {table_name} (name, category, price, color, img, status)
-        VALUES 
-        ('Pink Midi Dress', 'Dress', 48.50, 'Pink', 'pinkmididress.jpg', 'Online'),
-        ('Dark Red Heels', 'Shoes', 39.99, 'Red', 'darkredshoes.jpg', 'Offline'),
-        ('Black Leather Jacket', 'Jacket', 119.99, 'Black', 'blackleatherjacket.jpg', 'Online')
-        ''')
-
-# Function to print the contents of the table
+#--------------Print content of product DB--------------#
 def print_table_contents(cursor):
     query = f'SELECT * FROM {table_name}'
     df = pd.read_sql_query(query, conn)
@@ -38,13 +29,14 @@ def print_table_contents(cursor):
     print(tabulate(df, headers='keys', tablefmt='fancy_grid',
                    numalign="right",stralign="right"))
 
-# Function to print the contents of the product
+#--------------Print content of selected product ID--------------#
 def print_product_content_byID(cursor, id):
     query = f'SELECT * FROM {table_name} WHERE id=?'
     df = pd.read_sql_query(query, conn,params=(id,))
     print(f"Product Information of ID[{id}] :")
     print(df)
 
+#--------------SQL manipulation of data base--------------#
 def input_product_data():
     name = input("Enter the name: ")
     category = input("Enter the category: ")
@@ -59,27 +51,33 @@ def insert_data(cursor, product_data):
         INSERT INTO {table_name} (name, category, price, color, img, status)
         VALUES (?, ?, ?, ?, ?, ?)
         ''', product_data)
+    conn.commit()
+
 def edit_data(cursor, column_data,id_data, new_name):
     cursor.execute(f'''
         UPDATE {table_name}
         SET {column_data}=?
         WHERE id=?
         ''',(new_name, id_data))
+    conn.commit()
+
 def delete_data(cursor, id_data):
     cursor.execute(f'''
         DELETE FROM {table_name}
         WHERE id=?
-        ''',(id_data))
+        ''',(id_data,))
+    conn.commit()
     return
 
+#--------------User input/decision board--------------#
 def choice_add_another_product():
     choice=input("Continue with another product? (y/n): ").lower()
     return choice
 def choice_is_data_correct():
-    choice=input("Is data ok? (True/False): ")
+    choice=(input("Is data ok? (True/False): "))
     return choice
 def choice_data_operation():
-    choice=input("Add or delete or edit data? (Add/Delete/Edit/Leave): ").lower()
+    choice=input("DataBaseManipulation (Add/Import/Delete/Edit/Leave): ").lower()
     return choice
 def choice_edit_data_operation():
     choice_id=int(input("Select the ID of the data row: "))
@@ -90,6 +88,7 @@ def choice_delete():
     choice=int(input("Select ID of the product you want to delete: "))
     return choice
 
+#--------------User database SQL manipulation--------------#
 def add_data_operation():
     while True:
         #Get user input
@@ -97,8 +96,27 @@ def add_data_operation():
         print(f"user entry: {product_data}")
         # Add another entry or finish
         user_confirmation = choice_is_data_correct()
-        if user_confirmation:
+        if user_confirmation=="True":
             insert_data(cursor,product_data)
+            # Add another entry or finish
+            user_choice = choice_add_another_product()
+            if user_choice != 'y':
+                break
+        else:
+            print("Aborted")
+            # Add another entry or finish
+            user_choice = choice_add_another_product()
+            if user_choice != 'y':
+                break
+
+def import_from_csv_operation():
+    while True:
+        #Get user input
+        user_csv_file_path=input("CSV file path: ")
+        # Add another entry or finish
+        user_confirmation = choice_is_data_correct()
+        if user_confirmation=="True":
+            import_csv_data(cursor, table_name, user_csv_file_path)
             # Add another entry or finish
             user_choice = choice_add_another_product()
             if user_choice != 'y':
@@ -119,7 +137,7 @@ def edit_data_operation():
         print(f"user entry: {product_data}")
         # Add another entry or finish
         user_confirmation = choice_is_data_correct()
-        if user_confirmation:
+        if user_confirmation=="True":
             edit_data(cursor,col, id, new)
             # Add another entry or finish
             user_choice = choice_add_another_product()
@@ -136,12 +154,12 @@ def delete_data_operation():
     while True:
         print_table_contents(cursor)
         #Get user input
-        product_id=choice_edit_data_operation()
+        product_id=choice_delete()
         print(f"user entry: {product_id}")
         print_product_content_byID(cursor, product_id)
         # Add another entry or finish
         user_confirmation = choice_is_data_correct()
-        if user_confirmation:
+        if user_confirmation=="True":
             delete_data(cursor,product_id)
             #Delete another entry or finish
             user_choice = choice_add_another_product()
@@ -153,22 +171,38 @@ def delete_data_operation():
             user_choice = choice_add_another_product()
             if user_choice != 'y':
                 break
+
 def go_to_menu():
     print("Pres 'Esc' to go back to menu")
     key.wait('esc')
 
-# Connect to the database
+#--------------Import CSV data--------------#
+def import_csv_data(cursor, table_name, csv_file_path):
+    csv_data=pd.read_csv(csv_file_path)
+    for index,row in csv_data.iterrows():
+        name, category, price, color, img, status = row['name'], row['category'], float(row['price']), row['color'], row['img'], row['status']
+        cursor.execute(f'''
+            INSERT INTO {table_name} (name, category, price, color, img, status)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', (name, category, price, color, img, status))
+        conn.commit()
+    print("Import Complete")
+
+#--------------Connect to DB--------------#
 conn = sqlite3.connect(db_name)
 cursor = conn.cursor()
-
-# Create the table if it doesn't exist
+#--------------Create table--------------#
 create_table(cursor)
 
+#--------------User board--------------#
 while True:
     operation=choice_data_operation()
     if operation=="add":
         print("you choose ADD")
         add_data_operation()
+    elif operation=="import":
+        print("you choose Import from CSV")
+        import_from_csv_operation()
     elif operation=="edit":
         print("you choose EDIT")
         edit_data_operation()
@@ -184,8 +218,6 @@ while True:
     else: 
         print("Select right operation")
 
-#insert_sample_data(cursor)
-
-# Commit changes and close the connection
+#--------------Finalize connection--------------#
 conn.commit()
 conn.close()
