@@ -6,7 +6,6 @@
 body{
     background-color: rgb(212, 220, 226);
     font-family: 'Segoe UI', sans-serif;
-    
 }
 .NavigationBar{
     display: flex;
@@ -23,7 +22,6 @@ nav ul{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /*background-color: rgb(236, 234, 234);*/
 }
 nav ul li{
     display: inline-block;
@@ -72,7 +70,6 @@ p{
     flex-wrap: wrap;
 }
 .home-text {
-    /*text-transform: uppercase;*/
     margin-top: 20px;
     color: rgb(212, 220, 226);
     font-size: 25px;

@@ -6,7 +6,7 @@ function products(){
     paragraph.textContent = "Featured Products";
     // Append the paragraph to the output container
     outputProducts.appendChild(paragraph);
-
+    // Items data
     var productsData=[
         ["Satin Elegance Dress", "Dress", 99.99, "Sapphire Blue", "ProductsCategoriesImages/shoes.jpg", "online"],
         ["Glamour Evening Dress", "Dress", 129.99, "Emerald Green", "ProductsCategoriesImages/shoes3.jpg", "online"],
@@ -32,9 +32,12 @@ function products(){
         ["Elegant Blue Jacket", "Jacket", 79.99, "Cerulean Blue", "ProductsCategoriesImages/jacket1.jpg", "online"],
         ["Satin Midi Skirt", "Skirt", 69.99, "Mauve Pink", "ProductsCategoriesImages/skirt1.jpg", "online"],
     ];
+    
+    // Format rows and column of displayed items
     var nrItems = productsData.length
     var maxItemsRow = 5
     var maxRow = Math.floor(nrItems/maxItemsRow)
+
     // Loop through rows
     for (var i = 0; i < maxRow; i++) {
       // Create a new row element
@@ -42,7 +45,6 @@ function products(){
       row.classList.add("image-row");
       // Loop through columns
       for (var j = 0; j < maxItemsRow; j++) {
-       // Create a new product container
        var productContainer = document.createElement("div");
        productContainer.classList.add("product-image-container");
 
