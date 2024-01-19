@@ -1,10 +1,9 @@
-ShoppingBag.png
-- shoping bad icon-
-https://www.clipartmax.com/middle/m2H7G6d3G6b1b1K9_a
-
-Black heels category image
-https://www.pexels.com/photo/black-and-white-picture-of-legs-of-a-woman-wearing-black-high-heels-16008684/
-
-Red handbag
-https://www.etsy.com/market/dark_red_leather_bag
+Images --> 
+Pinterest
+Material used/inspired --> 
+W3School https://www.w3schools.com/html/html_lists.asp
+https://www.youtube.com/watch?v=yQimoqo0-7g
+Chat GPT -->
+blocks of text ex.Homepage
+some code in js
 
