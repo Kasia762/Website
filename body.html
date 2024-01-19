@@ -6,8 +6,9 @@
         <link rel="stylesheet" href="style.css">
         
         <script type="text/javascript" src="navigation.js"></script>
+        <script type="text/javascript" src="products.js"></script>
     </head>
-<body onload="showDefaultSection()">
+<body onload="showDefaultSection();products()">
 
     <div class="container">
         <div class="logo">
@@ -29,40 +30,60 @@
         </div>
 
     <!-- Page sections -->
-        <div id="home-section" class="homepage-content">
-            <h2>Welcome to Fashion online store</h2>
-                <p>You can choose from many clothes options</p>
-            
+        <div id="home-section" class="page-content">
+            <div class="home-page">
+                <div class="home-text">
+                    <h2>Welcome to Opulent Attire Co.<br>Fashion Online Shop</h2>
+                    <p>Indulge in the epitome of luxury and style with Opulent Attire Co. 
+                        <br>Unveil a world where fashion meets elegance, 
+                        <br>and each garment is a masterpiece crafted to perfection.</p>
+                    <p>Explore our exclusive collection, meticulously curated 
+                        <br>to bring you the latest trends, timeless classics, 
+                        <br>and everything in between. Opulence is not just a choice; 
+                        <br>it's a lifestyle.</p>
+                </div>
+                <div class="home-image">
+                    <img src="HomePic.jpg">
+                </div>
+                <div class="home-image">
+                    <img src="ProductsCategoriesImages/dress9.jpg">
+                </div>
+                <div class="home-text">
+                    <h2>Start Browsing</h2>
+                    <p>Step into a world where style meets sophistication, and fashion becomes an expression of your unique personality. We are thrilled to have you here, ready to embark on a journey of exquisite fashion with Opulent Attire Co.</p>
+                    <p>At Opulent Attire Co., we believe that clothing is not just about covering the body but showcasing the essence of one's identity. Our curated collection is a blend of timeless elegance, contemporary trends, and a touch of opulence, ensuring you stand out with confidence on every occasion.</p>
+                </div>
+            </div>
         </div>
 
         <div id="products-section" class="page-content">
-            <h2>Products</h2>
-                <p>Start shopping!!</p>
+            <h2>Select from Various Luxury Products</h2>
+            <p>Oppulent Attire CO. gives many good choices for upcoming sezon</p>
             <!-- Categories -->
             <div class="categories">
                 <div class="row">
                     <div class="category-product-image">
                         <div class="product-image-container">
-                            <div class="overlay-text">DRESSES</div>
+                            <div class="overlay-text">DRESS</div>
                             <img src="ProductsCategoriesImages/dress2.jpg">                            
                         </div>
                     </div>
                     <div class="category-product-image">
                         <div class="product-image-container">
                             <div class="overlay-text">SKIRT</div>
-                            <img src="ProductsCategoriesImages/dress2.jpg">
+                            <img src="ProductsCategoriesImages/skirt1.jpg">
                         </div>
                     </div>
                     <div class="category-product-image">
                         <div class="product-image-container">
-                            <div class="overlay-text">JACKETS</div>
-                            <img src="ProductsCategoriesImages/dress3.jpg">                            
+                            <div class="overlay-text">JACKET</div>
+                            <img src="ProductsCategoriesImages/jacket1.jpg">                            
                         </div>
                     </div>
                     <div class="category-product-image">
                         <div class="product-image-container">
-                            <div class="overlay-text">BAGS</div>
-                            <img src="ProductsCategoriesImages/hangbad5.jpg">                            
+                            <div class="overlay-text">BAG</div>
+                            <img src="ProductsCategoriesImages/handbag2.jpg">                            
                         </div>
                     </div>
                     <div class="category-product-image">
@@ -73,15 +94,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="product">
-
-                    </div>
+                    <div id="output-products" class="product"></div>
                 </div>
             </div>
         </div>
         <div id="about-section" class="page-content">
             <h2>Elegance shop</h2>
-                <p>We are global company founded in Germany in 1990</p>
+                <p>Opulent Attire Co., a renowned clothing company that epitomizes style and sophistication, traces its origins to Germany. Established in the vibrant year of 1980, the brand embarked on its illustrious journey by opening its first store in the heart of Germany. Since then, Opulent Attire Co. has become synonymous with quality, fashion, and an unwavering commitment to offering exquisite clothing choices.</p>
+                <p>With a rich heritage rooted in German craftsmanship, Opulent Attire Co. has evolved into a global fashion powerhouse, captivating the hearts of discerning customers worldwide. The brand's inaugural store in 1980 marked the inception of a legacy that continues to flourish, blending traditional elegance with contemporary trends.</p>
+                <p>Step into the world of Opulent Attire Co. to experience a fusion of German precision and cutting-edge fashion. From the timeless classics to the latest trends, the brand invites you to explore a curated collection that reflects the essence of style that has defined it since its inception. Embrace the opulence, embrace the legacy – Opulent Attire Co., where fashion meets perfection.</p>
         </div>
 
         <div id="cart-section" class="page-content">

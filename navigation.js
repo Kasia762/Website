@@ -15,3 +15,4 @@ function showDefaultSection() {
   var defaultSection = document.getElementById('home-section');
   defaultSection.classList.add('active-section');
 }
+
